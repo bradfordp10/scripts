@@ -18,7 +18,7 @@ while True:
         print(data)
         data.to_csv('ARIAtest.csv', mode='a', index=False)
     except Exception as exc:
-        print("[!!!] {err}".format(err=exc))
+        print("[!!!] {err} {date}".format(err=exc,date=pd.Timestamp.now().isoformat()))
         error = pd.read_csv(StringIO(",,,{date}Z,,,,,,".format(date=pd.Timestamp.now().isoformat())))
         error.to_csv('ARIAtest.csv', mode='a', index=False)
         time.sleep(15)
